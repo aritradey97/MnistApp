@@ -85,8 +85,15 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Enter a word", Toast.LENGTH_SHORT).show();
             return;
         }
+        int l = mTvPrediction.getSelectionStart();
+        int r = mTvPrediction.getSelectionEnd();
+        String word;
+        if(l == 0 && r == 0)
+            word = mTvPrediction.getText().toString();
+        else
+            word = mTvPrediction.getText().toString().substring(l,r);
         Intent intent = new Intent(this, InfoActivity.class);
-        intent.putExtra("word", mTvPrediction.getText().toString());
+        intent.putExtra("word", word);
         startActivity(intent);
     }
 

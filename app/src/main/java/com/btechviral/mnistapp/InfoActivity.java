@@ -40,20 +40,20 @@ public class InfoActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.result);
         recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
 
         String url = "https://owlbot.info/api/v3/dictionary/";
         String format = "?format=json";
 
-        String word = getIntent().getStringExtra("word");
+        String word[] = getIntent().getStringExtra("word").trim().split("\t");
 
-        Log.e("word", word);
+        Log.e("word", word[0]);
 
-        textView.setText(word);
+        textView.setText(word[0]);
 
         itemList = new ArrayList<>();
 
-        JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.GET, url + word.toLowerCase() + format, null,
+        JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.GET, url + word[0].toLowerCase() + format, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
