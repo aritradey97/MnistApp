@@ -1,5 +1,6 @@
 package com.btechviral.mnistapp;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
@@ -53,7 +54,12 @@ public class MainActivity extends AppCompatActivity {
     public void onClearClick(View view) {
         mFpvPaint.clear();
         String text = mTvPrediction.getText().toString();
-        mTvPrediction.setText(text.substring(0, text.length()-1));
+        try{
+            mTvPrediction.setText(text.substring(0, text.length()-1));
+        } catch (StringIndexOutOfBoundsException e){
+            mTvPrediction.setText("");
+        }
+
     }
 
     public void onSpaceClick(View view){
@@ -70,7 +76,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClearAllClick(View view){
+        mFpvPaint.clear();
         mTvPrediction.setText("");
+    }
+
+    public void onSearchClick(View view){
+        if(mTvPrediction.getText().toString().equals("")){
+            Toast.makeText(this, "Enter a word", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Intent intent = new Intent(this, InfoActivity.class);
+        intent.putExtra("word", mTvPrediction.getText().toString());
+        startActivity(intent);
     }
 
     private void renderResult(Result result) {

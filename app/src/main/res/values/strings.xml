@@ -10,4 +10,10 @@
     <string name="next">Next</string>
     <string name="clear_all">Clear All</string>
     <string name="space">Space</string>
+    <string name="txt_message">Text Message</string>
+    <string name="error">Error</string>
+    <string name="example">Example</string>
+    <string name="type">Type</string>
+    <string name="definition">Definition</string>
+    <string name="search">Search</string>
 </resources>
