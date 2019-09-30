@@ -5,4 +5,4 @@ The python notebook containing the training code is given [here](https://drive.g
 Dataset link is given [here](https://www.kaggle.com/yairhadad1/cnn-for-handwritten-alphabets).
 
 **Applications of this app:**
-This app can be used to improve one's spelling skills and to speed up writing. Meanings of commplex words can even be searched through the app.
+This app can be used to improve one's spelling skills and to speed up writing. Meanings of complex words can even be searched through the app.
